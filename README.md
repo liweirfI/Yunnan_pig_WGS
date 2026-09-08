@@ -1,5 +1,7 @@
 # Yunnan pig WGS — analysis workflow
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22657408.svg)](https://doi.org/10.5281/zenodo.22657408)
+
 Whole-genome sequencing workflow for *A whole-genome variant dataset for 234 indigenous pigs from
 nine breeds in Yunnan, China*.
 

@@ -8,7 +8,7 @@ message: >-
 type: software
 license: MIT
 version: 1.0.0
-# doi: 10.5281/zenodo.XXXXXXX   # uncomment and fill in after the Zenodo release
+doi: 10.5281/zenodo.22657408   # concept DOI: always resolves to the latest version
 authors:
   - family-names: Xiang
     given-names: De-Cai
