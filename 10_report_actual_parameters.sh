@@ -16,18 +16,25 @@ REPORT=$D_STATS/actual_parameters.txt
 
 section() { printf '\n===== %s =====\n' "$1" >> "$REPORT"; }
 
-section "fastp (unique command lines across all samples)"
+section "fastp (version and command line recorded in the JSON reports)"
+# The JSON records the version that actually processed the reads, which is the number the
+# methods section needs; the installed binary may since have been upgraded.
 "$PYTHON" - "$D_FASTP" <<'PY' >> "$REPORT"
 import glob, json, os, sys
-cmds = set()
-for js in glob.glob(os.path.join(sys.argv[1], "*.json")):
+seen = set()
+for js in sorted(glob.glob(os.path.join(sys.argv[1], "*.json"))):
     try:
-        cmds.add(json.load(open(js)).get("command", "<no command field>"))
+        d = json.load(open(js))
+        seen.add((d.get("summary", {}).get("fastp_version", "<not recorded>"),
+                  d.get("command", "<no command field>")))
     except Exception as e:
-        cmds.add(f"<unreadable {os.path.basename(js)}: {e}>")
-print("\n".join(sorted(cmds)) or "<no fastp JSON found>")
+        seen.add(("<unreadable>", f"{os.path.basename(js)}: {e}"))
+if not seen:
+    print("<no fastp JSON found>")
+for version, cmd in sorted(seen):
+    print(f"fastp {version}\n  {cmd}")
 PY
-echo "fastp version: $("$FASTP" --version 2>&1)" >> "$REPORT"
+echo "fastp binary installed now: $("$FASTP" --version 2>&1)" >> "$REPORT"
 
 section "BAM @PG (first sample)"
 first_bam=$(ls "$D_CLEANBAM"/*.analysis_ready.bam 2>/dev/null | head -1)
@@ -43,7 +50,7 @@ section "GATK GenotypeGVCFs / VariantFiltration"
 [[ -s $D_FILTER/yunnan234_SNP.vcf.gz ]] && \
     "$BCFTOOLS" view -h "$D_FILTER/yunnan234_SNP.vcf.gz" | grep -E 'FILTER=<ID=|GATKCommandLine' >> "$REPORT"
 
-section "software versions"
+section "software versions of the binaries installed now (not necessarily those used above)"
 {
     "$BWA_MEM2" version 2>&1 | head -1
     "$SAMTOOLS" --version | head -1
