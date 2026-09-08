@@ -1,0 +1,28 @@
+{
+  "title": "Analysis workflow for a whole-genome variant dataset of 234 indigenous pigs from nine breeds in Yunnan, China",
+  "description": "Executable shell workflow used to produce the variant dataset described in the accompanying Scientific Data descriptor: read filtering (fastp), quality assessment (FastQC), alignment to Sscrofa11.1 (BWA-MEM2, SAMtools), duplicate removal (Sambamba), per-sample variant calling and joint genotyping (GATK HaplotypeCaller, CombineGVCFs, GenotypeGVCFs), hard filtering (GATK VariantFiltration) and population-level filtering (VCFtools), functional annotation (ANNOVAR, Ensembl release 104), and the summary scripts behind Tables 1-3 and Figures 2-4. Raw reads are deposited at NCBI SRA under PRJNA1510310; the variant call set is deposited at the European Variation Archive under PRJEB125594.",
+  "upload_type": "software",
+  "license": "MIT",
+  "access_right": "open",
+  "language": "eng",
+  "version": "1.0.0",
+  "creators": [
+    {"name": "Xiang, De-Cai", "affiliation": "Yunnan Animal Science and Veterinary Institute, Kunming, China"},
+    {"name": "Li, Wei", "affiliation": "College of Animal Science and Technology, Anhui Agricultural University, Hefei, China"},
+    {"name": "Wu, Xu-dong", "affiliation": "Institute of Animal Husbandry and Veterinary Medicine, Anhui Academy of Agricultural Sciences, Hefei, China"},
+    {"name": "Wu, Guo-Quan", "affiliation": "Yunnan Animal Science and Veterinary Institute, Kunming, China"}
+  ],
+  "keywords": [
+    "whole-genome sequencing",
+    "Sus scrofa",
+    "indigenous pig breeds",
+    "Yunnan",
+    "variant calling",
+    "GATK",
+    "population genomics"
+  ],
+  "related_identifiers": [
+    {"identifier": "PRJNA1510310", "relation": "isSupplementTo", "scheme": "other"},
+    {"identifier": "PRJEB125594", "relation": "isSupplementTo", "scheme": "other"}
+  ]
+}

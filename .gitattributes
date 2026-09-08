@@ -1,0 +1,6 @@
+# Shell scripts must stay LF: a CRLF .sh dies on Linux with "bad interpreter".
+* text=auto eol=lf
+*.sh text eol=lf
+*.pl text eol=lf
+*.tsv text eol=lf
+*.list text eol=lf

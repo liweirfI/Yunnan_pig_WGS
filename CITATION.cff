@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+title: >-
+  Analysis workflow for a whole-genome variant dataset of 234 indigenous pigs
+  from nine breeds in Yunnan, China
+message: >-
+  If you use this workflow, please cite both the software (this record) and the
+  associated data descriptor.
+type: software
+license: MIT
+version: 1.0.0
+# doi: 10.5281/zenodo.XXXXXXX   # uncomment and fill in after the Zenodo release
+authors:
+  - family-names: Xiang
+    given-names: De-Cai
+    affiliation: >-
+      Yunnan Animal Science and Veterinary Institute, Kunming, China
+  - family-names: Li
+    given-names: Wei
+    email: liweirfi@126.com
+    affiliation: >-
+      College of Animal Science and Technology, Anhui Agricultural University,
+      Hefei, China
+  - family-names: Wu
+    given-names: Xu-dong
+    affiliation: >-
+      Institute of Animal Husbandry and Veterinary Medicine, Anhui Academy of
+      Agricultural Sciences, Hefei, China
+  - family-names: Wu
+    given-names: Guo-Quan
+    affiliation: >-
+      Yunnan Animal Science and Veterinary Institute, Kunming, China
+keywords:
+  - whole-genome sequencing
+  - Sus scrofa
+  - indigenous pig breeds
+  - Yunnan
+  - variant calling
+  - GATK
+references:
+  - type: generic
+    title: Raw sequencing reads (NCBI SRA)
+    identifiers:
+      - type: other
+        value: PRJNA1510310
+  - type: generic
+    title: Variant call set (European Variation Archive)
+    identifiers:
+      - type: other
+        value: PRJEB125594
